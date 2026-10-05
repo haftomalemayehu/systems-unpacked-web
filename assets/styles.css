@@ -1,151 +1,92 @@
-/* Global Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Contact Systems Unpacked for systems analysis, editorial inquiries, and collaboration." />
+    <title>Contact | Systems Unpacked</title>
+    <link rel="stylesheet" href="../assets/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <nav class="nav container" aria-label="Main navigation">
+          <a class="brand" href="../" aria-label="Systems Unpacked home">
+            <span class="brand-mark">◆</span>
+            <span>Systems Unpacked</span>
+          </a>
+          <div class="nav-links">
+            <a href="../">Home</a>
+            <a href="../about/">About</a>
+            <a href="../blog/">Blog</a>
+            <a href="./" class="active">Contact</a>
+            <a href="../privacy/">Privacy</a>
+          </div>
+        </nav>
+      </header>
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f9f9f9;
-}
+      <main>
+        <section class="page-header container">
+          <p class="eyebrow">Contact</p>
+          <h1>Start a conversation about systems.</h1>
+        </section>
 
-/* Header and Navigation */
-header {
-    background-color: #2c3e50;
-    color: white;
-    padding: 1rem 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+        <section class="section container contact-layout">
+          <div class="content-panel">
+            <h2>Reach out</h2>
+            <p>For editorial inquiries, analysis requests, and collaboration opportunities, send a note and we’ll respond as soon as possible.</p>
+            <p><a href="mailto:hello@systems-unpacked.com">hello@systems-unpacked.com</a></p>
+          </div>
 
-nav {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+          <div class="content-panel">
+            <form class="contact-form">
+              <label>
+                Name
+                <input type="text" name="name" placeholder="Your name" />
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" placeholder="you@example.com" />
+              </label>
+              <label>
+                Message
+                <textarea name="message" rows="6" placeholder="Tell us about your interest..."></textarea>
+              </label>
+              <button type="submit" class="button button-primary">Send inquiry</button>
+            </form>
+          </div>
+        </section>
+      </main>
 
-nav h1 {
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-nav a:hover {
-    color: #3498db;
-}
-
-/* Main Content */
-main {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 2rem;
-}
-
-/* Hero Section */
-.hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 4rem 2rem;
-    border-radius: 8px;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.hero h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    opacity: 0.9;
-}
-
-/* Content Sections */
-.content {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.content h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: #2c3e50;
-}
-
-.content h3 {
-    font-size: 1.3rem;
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
-    color: #34495e;
-}
-
-.content p {
-    margin-bottom: 1rem;
-    text-align: justify;
-}
-
-.content ul,
-.content ol {
-    margin-left: 2rem;
-    margin-bottom: 1rem;
-}
-
-.content li {
-    margin-bottom: 0.5rem;
-}
-
-/* Footer */
-footer {
-    background-color: #2c3e50;
-    color: white;
-    text-align: center;
-    padding: 2rem;
-    margin-top: 3rem;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    nav ul {
-        gap: 1rem;
-    }
-
-    .hero h2 {
-        font-size: 1.8rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    main {
-        padding: 0 1rem;
-    }
-
-    .content {
-        padding: 1.5rem;
-    }
-}
+      <footer class="site-footer">
+        <div class="container footer-grid">
+          <div>
+            <a class="brand footer-brand" href="../">
+              <span class="brand-mark">◆</span>
+              <span>Systems Unpacked</span>
+            </a>
+            <p class="footer-copy">Complex systems. Visually explained.</p>
+          </div>
+          <div>
+            <h3>Explore</h3>
+            <ul>
+              <li><a href="../about/">About</a></li>
+              <li><a href="../blog/">Blog</a></li>
+              <li><a href="../contact/">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Legal</h3>
+            <ul>
+              <li><a href="../privacy/">Privacy</a></li>
+              <li><a href="../terms/">Terms</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="container footer-bottom">
+          <span>© 2026 Systems Unpacked</span>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
