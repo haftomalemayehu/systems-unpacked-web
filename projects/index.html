@@ -70,6 +70,24 @@
             </article>
 
             <article class="post-card">
+              <h3>How to Build you own Jarvis Interface</h3>
+              <p>Build a voice-enabled personal AI agent in one weekend using nine practical steps. Give it a home, choose an agent framework and model, add your context and memory, then connect skills, tools, communication channels, and a custom interface.</p>
+              <h4>Nine steps to your own JARVIS</h4>
+              <ol>
+                <li><strong>Give it a home.</strong> Use an old laptop, Mac Mini, or cloud server.</li>
+                <li><strong>Install an agent.</strong> Use a framework such as Hermes Agent to turn an AI model into a tool-using agent.</li>
+                <li><strong>Choose its model.</strong> Select Claude, Codex, Gemini, or another supported model based on your needs.</li>
+                <li><strong>Teach it your context.</strong> Explain who you are, what you do, and how your business works. Avoid sharing unnecessary sensitive information.</li>
+                <li><strong>Add persistent memory.</strong> Consider Honcho AI or another memory system to retain useful context across conversations, with controls to inspect and delete it.</li>
+                <li><strong>Give it skills.</strong> Add focused capabilities for the specific jobs you want it to handle.</li>
+                <li><strong>Connect your tools.</strong> Integrate email, calendars, documents, or a browser with least-privilege permissions and approval gates for consequential actions.</li>
+                <li><strong>Connect communication and voice.</strong> Explore Slack, Telegram, or iMessage integrations where supported. Add Hermes Voice and an ElevenLabs voice for spoken interaction.</li>
+                <li><strong>Build the JARVIS interface.</strong> Use a design tool such as Claude to create a custom dashboard, then connect it to your agent and voice interface.</li>
+              </ol>
+              <p><strong>Weekend goal:</strong> A working prototype that can converse, remember approved context, and use connected tools. Production-grade security, reliability, and integrations require additional work.</p>
+            </article>
+
+            <article class="post-card">
               <h3>Production Deployment Explained</h3>
               <p>
                 This is how big tech companies push code to production explained under 60 seconds. It all starts with a product manager creating user stories in Jira that explain what we're building and why — this is where requirements are defined. Engineers take those stories and start coding, commit changes to the GitHub repo, and merge them at the end of the sprint. CI tools like Jenkins, GitLab CI, and SonarQube automatically build the code, run unit tests, and perform quality checks. The code is packaged into Docker containers for consistent environments. QA tests in the dev environment to catch bugs, then features are deployed to staging/UAT for user acceptance testing. Finally, production rollout uses techniques like canary deployments, A/B testing, or feature flags while site reliability engineers monitor performance and respond to issues. The feature is now live for users — that’s generally how features reach your device.
