@@ -70,3 +70,21 @@ a{color:var(--blue);text-decoration:none}a:hover{color:var(--mint)}.container{wi
 .nav-links a[aria-current="page"]{color:var(--mint)}
 .resume-qr-wrap img{background:#fff}
 @media(max-width:520px){.resume-preview{height:65vh}.resume-actions{flex-direction:column;align-items:stretch}.resume-actions .button{text-align:center}}
+
+/* CI/CD learning section */
+.cicd-panel{padding:clamp(1.25rem,3vw,2.5rem)}
+.cicd-panel #cicd-heading{margin:0;font-size:clamp(2rem,4vw,3rem);line-height:1.1}
+.cicd-overview{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:2rem;align-items:start;margin-top:2rem}
+.cicd-illustration{aspect-ratio:1280/902;border-radius:12px;background:#faf7ef url('/assets/images/devops-cloud.jpg') center/contain no-repeat;border:1px solid var(--line)}
+.cicd-notes article+article{margin-top:1.4rem;padding-top:1.4rem;border-top:1px solid var(--line)}
+.cicd-notes h3,.cicd-workflow h3{margin:0 0 .5rem;font-size:1.1rem;line-height:1.35}
+.cicd-notes p{margin:0}
+.cicd-definitions{margin:.75rem 0 0}
+.cicd-definitions div+div{margin-top:.8rem}
+.cicd-definitions dt{color:var(--mint);font-weight:700;font-size:.9rem}
+.cicd-definitions dd{margin:.2rem 0 0;color:var(--muted)}
+.cicd-workflow{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--line)}
+.cicd-workflow .cicd-flow{color:var(--mint);font-weight:700;line-height:1.8}
+.cicd-workflow ol{padding-left:1.3rem;margin-bottom:0}
+.cicd-workflow li+li{margin-top:.5rem}
+@media(max-width:800px){.cicd-overview{grid-template-columns:1fr;gap:1.5rem}}
