@@ -75,7 +75,7 @@ a{color:var(--blue);text-decoration:none}a:hover{color:var(--mint)}.container{wi
 .cicd-panel{padding:clamp(1.25rem,3vw,2.5rem)}
 .cicd-panel #cicd-heading{margin:0;font-size:clamp(2rem,4vw,3rem);line-height:1.1}
 .cicd-overview{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:2rem;align-items:start;margin-top:2rem}
-.cicd-illustration{aspect-ratio:1280/902;border-radius:12px;background:#faf7ef url('/assets/images/devops-cloud.jpg') center/contain no-repeat;border:1px solid var(--line)}
+.cicd-figure{display:block;width:100%;min-width:0;align-self:start;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fcf9f2}
 .cicd-notes article+article{margin-top:1.4rem;padding-top:1.4rem;border-top:1px solid var(--line)}
 .cicd-notes h3,.cicd-workflow h3{margin:0 0 .5rem;font-size:1.1rem;line-height:1.35}
 .cicd-notes p{margin:0}
@@ -98,4 +98,4 @@ a{color:var(--blue);text-decoration:none}a:hover{color:var(--mint)}.container{wi
 @media(max-width:760px){.homepage-hero h1{font-size:clamp(2.1rem,8vw,3.2rem);max-width:none}.homepage-hero{min-height:auto}}
 
 /* CI/CD SVG replacement: render the asset itself, not the previous background JPG */
-img.cicd-illustration{display:block;width:100%;height:auto;aspect-ratio:960/680;object-fit:contain;background:#fcf9f2;border-radius:12px}
+.cicd-figure .cicd-illustration{display:block;width:100%;height:auto;object-fit:contain;background:#fcf9f2}
