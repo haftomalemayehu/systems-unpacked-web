@@ -161,6 +161,28 @@
             })();
           </script>
         </section>
+
+        <section class="section container" id="aws-microservices" aria-labelledby="aws-microservices-heading">
+          <div class="content-panel">
+            <p class="eyebrow">Cloud Architecture &amp; Infrastructure as Code</p>
+            <h2 id="aws-microservices-heading">Scalable Cloud Microservices on AWS with Terraform</h2>
+            <p>Explore an event-driven architecture for containerized batch processing and serverless microservices using <strong>AWS Batch on Fargate, AWS Lambda, AWS Step Functions, Amazon S3, and Terraform</strong>.</p>
+            <h3>Reference architecture</h3>
+            <p class="cicd-flow">Amazon S3 &rarr; AWS Lambda &rarr; AWS Step Functions &rarr; AWS Batch on Fargate &rarr; Amazon S3</p>
+            <p>An S3 event can invoke Lambda to validate a request and start a Step Functions workflow. The workflow coordinates processing steps and submits containerized, resource-intensive jobs to AWS Batch using Fargate. Results and processing artifacts are stored in S3.</p>
+            <h3>Core components</h3>
+            <ul class="bullet-list">
+              <li><strong>Amazon S3:</strong> Store input files, outputs, and processing artifacts.</li>
+              <li><strong>AWS Lambda:</strong> Handle lightweight event processing, validation, and workflow initiation.</li>
+              <li><strong>AWS Step Functions:</strong> Orchestrate tasks, retries, timeouts, and failure handling.</li>
+              <li><strong>AWS Batch on Fargate:</strong> Execute containerized batch workloads without managing EC2 hosts.</li>
+              <li><strong>Terraform:</strong> Define and review infrastructure changes for storage, IAM, orchestration, compute, networking, and observability.</li>
+            </ul>
+            <h3>Engineering considerations</h3>
+            <p>Design for idempotent processing, least-privilege IAM, encrypted storage, bounded retries, workflow visibility, cost controls, and appropriate Fargate resource limits. Use Terraform plan review and approval before applying infrastructure changes.</p>
+            <p class="project-coming-soon">Reference architecture and implementation guide coming soon</p>
+          </div>
+        </section>
       </main>
 
       <footer class="site-footer">
