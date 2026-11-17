@@ -99,3 +99,10 @@ a{color:var(--blue);text-decoration:none}a:hover{color:var(--mint)}.container{wi
 
 /* CI/CD SVG replacement: render the asset itself, not the previous background JPG */
 .cicd-figure .cicd-illustration{display:block;width:100%;height:auto;object-fit:contain;background:#fcf9f2}
+
+/* Engineering knowledge base */
+.knowledge-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;margin-top:1.5rem}
+.knowledge-grid .content-panel{min-width:0;overflow-wrap:anywhere}
+.knowledge-grid pre{max-width:100%;overflow-x:auto;padding:1rem;border:1px solid var(--line);border-radius:10px;line-height:1.55;font-size:.83rem}
+.knowledge-grid code{overflow-wrap:anywhere}
+@media(max-width:800px){.knowledge-grid{grid-template-columns:1fr}}

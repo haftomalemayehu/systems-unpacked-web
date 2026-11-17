@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Practical Kubernetes deployment, troubleshooting, YAML, AWS, Docker, system design, JavaScript and AI learning guides from Systems Unpacked.">
+<meta property="og:title" content="Engineering Knowledge Base | Systems Unpacked"><meta property="og:type" content="website"><meta property="og:url" content="https://systems-unpacked.com/knowledge/">
+<title>Engineering Knowledge Base | Systems Unpacked</title><link rel="canonical" href="https://systems-unpacked.com/knowledge/"><link rel="stylesheet" href="/assets/styles.css"></head>
+<body><div class="page-shell"><header class="topbar"><nav class="nav container" aria-label="Main navigation"><a class="brand" href="/"><span class="brand-mark">◆</span><span>Systems Unpacked</span></a><div class="nav-links"><a href="/">Home</a><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/projects/">Projects</a><a href="/knowledge/" aria-current="page">Knowledge Base</a><a href="/resume/">Resume</a><a href="/contact/">Contact</a></div></nav></header>
+<main class="container"><section class="page-header"><p class="eyebrow">Technical learning guides</p><h1>Engineering Knowledge Base</h1><p>Reference notes and practical workflows for cloud and software engineering. These are educational guides, not claims of deployed projects.</p></section>
+<section class="section" aria-labelledby="k8s"><h2 id="k8s">Kubernetes: Deploy, Configure, Troubleshoot</h2><div class="knowledge-grid">
+<article class="content-panel"><h3>1. Deploy an application to Kubernetes</h3><p>Developer → CI build and tests → container image → Amazon ECR → Kubernetes Deployment → Service → Ingress / Load Balancer → Users.</p><ol><li>Build and test the application; create a container image.</li><li>Push the versioned image to a registry such as Amazon ECR.</li><li>Define a Deployment with image, replica count, resource requests and limits, and probes.</li><li>Apply manifests with <code>kubectl apply -f k8s/</code>.</li><li>Verify rollout, pods, Service endpoints, and external routing.</li><li>Use rolling updates and <code>kubectl rollout undo deployment/my-app</code> when needed.</li></ol><p><strong>Note:</strong> A Service is internal by default. External access requires appropriate networking and an Ingress controller or load balancer.</p></article>
+<article class="content-panel"><h3>2. Production troubleshooting</h3><p>Start with <code>kubectl get pods -A</code> and <code>kubectl describe pod &lt;pod&gt; -n &lt;namespace&gt;</code>; inspect events before changing resources.</p><ul class="bullet-list"><li><strong>Pending:</strong> scheduling constraints, CPU/memory requests, taints, PVCs, quotas.</li><li><strong>CrashLoopBackOff:</strong> previous logs, startup command, configuration, dependencies and probes.</li><li><strong>ImagePullBackOff:</strong> image name/tag, registry permissions, pull secrets and network access.</li><li><strong>Running but unavailable:</strong> readiness, Service selectors, EndpointSlices, ports, Ingress and DNS.</li><li><strong>High resource use:</strong> metrics, limits, HPA behavior, application profiling.</li><li><strong>Node or network issues:</strong> node conditions, CNI, NetworkPolicy and DNS.</li></ul><p>After remediation: <strong>fix → verify → monitor</strong>.</p></article>
+<article class="content-panel"><h3>3. Kubernetes YAML anatomy</h3><p>Common resource fields are <code>apiVersion</code>, <code>kind</code>, <code>metadata</code>, and <code>spec</code>. A Deployment's pod template is under <code>spec.template</code>.</p><pre><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - name: web
+          image: nginx:1.27
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 250m
+              memory: 256Mi
+            limits:
+              memory: 512Mi</code></pre><p>Use namespace-scoped configuration, appropriate RBAC, Secrets for sensitive values, and Kustomize or Helm for environment-specific packaging. Never commit real secret values.</p></article>
+<article class="content-panel"><h3>4. Example EKS repository layout</h3><pre><code>k8s-project/
+├── .github/workflows/ci-cd.yml
+├── app/
+│   ├── src/
+│   └── Dockerfile
+├── k8s/
+│   ├── namespace/
+│   ├── deployment/
+│   ├── service/
+│   ├── ingress/
+│   ├── config/
+│   └── hpa/
+├── terraform/
+│   ├── modules/
+│   │   ├── eks/
+│   │   └── vpc/
+│   ├── main.tf
+│   ├── variables.tf
+│   └── outputs.tf
+└── README.md</code></pre><p>Separate application build, infrastructure provisioning, and Kubernetes deployment into independently reviewed CI/CD stages. Do not automatically run destructive Terraform applies or cluster mutations from untrusted pull requests.</p></article>
+</div></section>
+<section class="section" aria-labelledby="topics"><h2 id="topics">Core engineering topic maps</h2><div class="knowledge-grid">
+<article class="content-panel"><h3>AWS Cloud</h3><p>EC2, S3, RDS, Lambda, VPC, IAM, CloudFront, Elastic Beanstalk, CloudWatch, Route 53, API Gateway, ECS, and EKS.</p><p>Study the responsibility model, networking, identity, compute choices, storage, observability and costs before combining services into architectures.</p></article>
+<article class="content-panel"><h3>System Design</h3><p>Requirements and trade-offs; modularity, scalability, reliability, latency, availability, databases, caching, load balancing, microservices, APIs, security, monitoring, fault tolerance, recovery, partitioning, messaging, distributed systems, design patterns, CI/CD, containers and cloud cost optimization.</p></article>
+<article class="content-panel"><h3>Docker &amp; DevOps</h3><p>Containers, Dockerfiles, Engine, images, image layers, volumes, networks, registries, multi-stage builds, Compose, security, CI/CD and deployment strategies.</p><p>Build minimal images, pin dependencies, scan artifacts and avoid embedding credentials.</p></article>
+<article class="content-panel"><h3>JavaScript</h3><p>Variables, types, operators, control flow, functions, arrays, objects, DOM, events, asynchronous JavaScript, promises, modules, Fetch API, storage, classes, debugging, JSON and modern language features.</p></article>
+<article class="content-panel"><h3>AI Engineering</h3><p>AI and ML fundamentals, deep learning, NLP, computer vision, neural networks, generative AI, prompt design, cloud AI, agentic systems, AI ethics, explainability, edge AI and conversational AI.</p><p>Connect concepts to evaluation, data quality, security and operational controls.</p></article>
+</div></section></main>
+<footer class="site-footer"><div class="container footer-grid"><div><a class="brand footer-brand" href="/">◆ Systems Unpacked</a><p class="footer-copy">Complex systems. Visually explained.</p></div><div><h3>Explore</h3><ul><li><a href="/projects/">Projects</a></li><li><a href="/knowledge/">Knowledge Base</a></li><li><a href="/contact/">Contact</a></li></ul></div><div><h3>Legal</h3><ul><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li></ul></div></div></footer></div></body></html>
