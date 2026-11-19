@@ -1,5 +1,11 @@
 # Systems Unpacked Website
 
+<<An integration I built using claude for my Systems Unpacked Media Engine, using the YouTube API, Python, FFmpeg, and text-to-speech services. It automated video generation, rendering, and uploading to YouTube, reducing manual publishing steps.
+
+Yes, the integration was successfully tested end-to-end, including uploading a real private YouTube Short. The core functionality worked, although the full public production rollout was still pending.>>
+
+
+
 Public, static HTML/CSS website for **Systems Unpacked**, a cloud architecture, platform engineering, and AI systems publication and professional portfolio.
 
 Production site: https://systems-unpacked.com/
