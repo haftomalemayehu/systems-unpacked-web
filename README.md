@@ -55,3 +55,7 @@ Do not commit API keys, OAuth tokens, secrets, private contact details, or priva
 - Publish full articles only when their complete content exists; label planned topics accordingly.
 - Review technical guidance and provider-specific details regularly.
 - Keep the sitemap and canonical URLs consistent with the public domain.
+
+## Browser verification
+
+Pull requests also run Playwright smoke checks on desktop and mobile viewports. These check page responses, headings, horizontal overflow, mobile menu behavior and the inline CI/CD SVG dimensions. To run locally, install Node.js 22 and Playwright, serve the repository on port 8000, then run `node scripts/browser-smoke.cjs`. Production Cloudflare security headers, accessibility audits, external links and live deployment status require separate verification.
