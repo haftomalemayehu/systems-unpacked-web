@@ -21,8 +21,10 @@ class Inspector(HTMLParser):
         self.description = False
         self.canonical = []
         self.links = []
+        self.ids = []
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
+        if a.get("id"): self.ids.append(a["id"])
         if tag == "title": self.title = True
         if tag == "h1": self.h1 += 1
         if tag == "meta" and a.get("name") == "description" and a.get("content"): self.description = True
@@ -36,6 +38,9 @@ for page in PAGES:
     html = page.read_text(encoding="utf-8")
     parser = Inspector()
     parser.feed(html)
+    for element_id in sorted(set(parser.ids)):
+        if parser.ids.count(element_id) > 1:
+            errors.append(f"{page}: duplicate HTML id: {element_id}")
     expected = BASE + ("" if page.parent == ROOT else page.parent.relative_to(ROOT).as_posix() + "/")
     if not parser.title: errors.append(f"{page}: missing title")
     if not parser.description: errors.append(f"{page}: missing meta description")
