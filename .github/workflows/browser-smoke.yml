@@ -1,0 +1,23 @@
+name: Browser smoke checks
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  browser-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm install --no-save playwright@1.58.2
+      - run: npx playwright install --with-deps chromium
+      - name: Serve static site
+        run: python3 -m http.server 8000 --bind 127.0.0.1 >/tmp/site.log 2>&1 &
+      - name: Browser smoke tests
+        run: node scripts/browser-smoke.cjs
