@@ -8,4 +8,4 @@ Next candidates: Terraform module contracts; policy-as-code; platform SLOs.
 
 Before approval: validate source links, examples, SEO, accessibility and browser behavior. Do not claim production implementation.
 
-| 2026-11-23 | Terraform Module Contracts: Building Safe Self-Service Infrastructure | Draft PR #pending; source/examples validation pending | Not published |
+| 2026-11-23 | Terraform Module Contracts: Building Safe Self-Service Infrastructure | Draft PR #28; source/examples validation pending | Not published |
